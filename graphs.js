@@ -51,7 +51,7 @@ function placeConnection(hr, begin, end) {
         OTransform: matrix});
 }
 
-function setUpConnection(index, hr) {
+function newConnection(hr) {
     var endpoints = hr.id.split(':');
     var begin = document.getElementById(endpoints[0]);
     var end = document.getElementById(endpoints[1]);
@@ -61,8 +61,26 @@ function setUpConnection(index, hr) {
 }
 
 function initGraphs() {
-    $('.graph hr.connection').each(setUpConnection);
+    $('.graph-container hr.graph-connection').each(function(_, hr) {
+        newConnection(hr);
+    });
 }
+
+function updateConnections(/*nodes...*/) {
+    arguments.each(function(_, node) {
+        connections = $(node).data('graph-connections');
+        if (connections)
+            connections.each(function(_, conn) {
+                var hr = conn[0];
+                var end = conn[1];
+                placeConnection(hr, node, end);
+            });
+    });
+}
+
+window.Graphs = {
+    newConnection: newConnection,
+    updateConnections: updateConnections};
 
 $(initGraphs);
 
