@@ -1,5 +1,4 @@
 'use strict';
-
 (function(){
 
 var g_connections = {};
@@ -67,15 +66,17 @@ function initGraphs() {
 }
 
 function updateConnections(/*nodes...*/) {
-    arguments.each(function(_, node) {
-        connections = $(node).data('graph-connections');
+    for (var i in arguments) {
+        var node = arguments[i];
+        var connections = $(node).data('graph-connections');
         if (connections)
-            connections.each(function(_, conn) {
+            for (var j in connections) {
+                var conn = connections[j];
                 var hr = conn[0];
                 var end = conn[1];
                 placeConnection(hr, node, end);
-            });
-    });
+            }
+    }
 }
 
 window.Graphs = {

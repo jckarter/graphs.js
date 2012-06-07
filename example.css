@@ -1,5 +1,5 @@
 body {background-color:#777;}
-.graph-node {position:absolute; border:1px solid black; border-radius:5px; padding:5px 10px;}
+.graph-node {position:absolute; border:1px solid black; border-radius:5px; padding:5px 10px; cursor:move;}
 #foo  {background-color:#eee; left:10px; top:10px;}
 #bar  {background-color:#fee; left:100px; top:30px;}
 #bas  {background-color:#efe; left:40px; top:60px;}
