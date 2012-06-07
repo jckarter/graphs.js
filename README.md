@@ -33,7 +33,7 @@ stylesheet. For example:
 
 gets rendered as:
 
-<img src="README.png">
+<img src="https://github.com/jckarter/graphs.js/raw/master/README.png">
 
 ## How to use
 
